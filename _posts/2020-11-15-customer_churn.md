@@ -1,3 +1,14 @@
+---
+title: "Customer Churn Detection"
+date: 2020-11-15
+tags: [data wrangling, data science, customer churn, random forest]
+header:
+  image:
+excerpt: "Identifying when a customer is about to leave a service"
+mathjax: "true"
+---
+
+
 ```python
 import pandas as pd
 import numpy as np
