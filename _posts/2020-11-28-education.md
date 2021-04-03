@@ -3,7 +3,7 @@ title: "The Rising Cost of Education"
 date: 2020-11-28
 tags: [data wrangling, data science, html, Beautiful soup, web scraping, education, tuition]
 header:
-   image: "/images/output_41_1.png"
+   image: "/images/college-cost1.jpeg"
 excerpt: "Finding the true cost of education using web scraping and SQL"
 mathjax: "true"
 ---
@@ -2222,7 +2222,8 @@ df_di.plot(kind='line', linewidth=7, figsize=(25,20),
     <matplotlib.legend.Legend at 0x142700730>
 
 
-![png](output_38_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_38_1.png" alt="linearly separable data">
+
     
 
 
@@ -2260,7 +2261,8 @@ df_cd.plot(kind='line', linestyle='dotted', linewidth=6, figsize=(25,20),
 
 
     
-<img src="https://github.com/Sherbstreit/sherbstreit.github.io/blob/master/_posts/output_41_1.png" class="img-responsive" alt=""> </div>
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_41_1.png" alt="linearly separable data">
 
 
 
@@ -2298,7 +2300,8 @@ df_ir.plot(kind='bar', width=0.8, figsize=(25,20),
 
 
     
-![png](output_44_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_44_1.png" alt="linearly separable data">
+
     
 
 
@@ -2337,7 +2340,8 @@ df_is.plot(kind='bar', width=0.8, figsize=(25,20),
 
 
     
-![png](output_47_1.png)
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_47_1.png" alt="linearly separable data">
     
 
 
@@ -2406,9 +2410,8 @@ a_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 
 
-    
-![png](output_54_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_54_1.png" alt="linearly separable data">
+
 
 
 
@@ -2427,9 +2430,9 @@ b_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 
 
+ 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_55_1.png" alt="linearly separable data">
 
-![alt]({{ site.url }}{{ site.baseurl }}/output_55_1.png)  
-![png](output_55_1.png)
     
 
 
@@ -2450,9 +2453,6 @@ p_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 
 
-![alt]({{ site.url }}{{ site.baseurl }}output_56_1.png)  
-![png](output_56_1.png)
-<img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="linearly separable data">
 <img src="{{ site.url }}{{ site.baseurl }}/images/output_56_1.png" alt="linearly separable data">
 
     
