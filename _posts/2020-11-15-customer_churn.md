@@ -364,8 +364,8 @@ plt.savefig('heatmap.png')
 ```
 
 
-    
-![png](output_6_0.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_0.png" alt="linearly separable data">   
+
     
 
 
@@ -532,7 +532,7 @@ plt.show()
 
     
 
-<img src="{{ site.url }}{{ site.baseurl }}/output_15_0.png" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_15_0.png" alt="linearly separable data">   
    
 
 
@@ -705,8 +705,8 @@ plot_confusion_matrix(rfc, X_test, y_test,
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_21_1.png" alt="linearly separable data">   
 
-<img src="{{ site.url }}{{ site.baseurl }}output_21_1.png" alt="linearly separable data">
    
     
 
