@@ -3,7 +3,7 @@ title: "The Rising Cost of Education"
 date: 2020-11-28
 tags: [data wrangling, data science, html, Beautiful soup, web scraping, education, tuition]
 header:
-   image:"/images/output_41_1.png"
+   image: "/images/output_41_1.png"
 excerpt: "Finding the true cost of education using web scraping and SQL"
 mathjax: "true"
 ---
