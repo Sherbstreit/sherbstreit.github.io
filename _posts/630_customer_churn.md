@@ -520,8 +520,9 @@ plt.show()
 
 
     
-![png](output_15_0.png)
-    
+
+<img src="{{ site.url }}{{ site.baseurl }}/output_15_0.png" alt="linearly separable data">
+   
 
 
 
@@ -694,7 +695,7 @@ plot_confusion_matrix(rfc, X_test, y_test,
 
 
 
-    
-![png](output_21_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}output_21_1.png" alt="linearly separable data">
+   
     
 
