@@ -2452,6 +2452,9 @@ p_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 ![alt]({{ site.url }}{{ site.baseurl }}output_56_1.png)  
 ![png](output_56_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/perceptron/linsep.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_56_1.png" alt="linearly separable data">
+
     
 
 
