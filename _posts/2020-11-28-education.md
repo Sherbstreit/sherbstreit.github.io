@@ -2222,9 +2222,7 @@ df_di.plot(kind='line', linewidth=7, figsize=(25,20),
     <matplotlib.legend.Legend at 0x142700730>
 
 
-
-<img src="images/output_38_1.png" width="100" height="100">
- 
+![png](output_38_1.png)
     
 
 
