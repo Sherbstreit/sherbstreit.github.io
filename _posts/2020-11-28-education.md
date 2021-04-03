@@ -2223,8 +2223,8 @@ df_di.plot(kind='line', linewidth=7, figsize=(25,20),
 
 
 
-
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_38_1.png" alt="linearly separable data">    
+<img src="images/output_38_1.png" width="100" height="100">
+ 
     
 
 
