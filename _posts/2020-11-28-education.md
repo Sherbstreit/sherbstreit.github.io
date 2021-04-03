@@ -2260,8 +2260,7 @@ df_cd.plot(kind='line', linestyle='dotted', linewidth=6, figsize=(25,20),
 
 
     
-![png](output_41_1.png)
-    
+<img src="https://github.com/Sherbstreit/sherbstreit.github.io/blob/master/_posts/output_41_1.png" class="img-responsive" alt=""> </div>
 
 
 
