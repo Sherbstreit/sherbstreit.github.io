@@ -3,14 +3,12 @@ title: "Airplane Safety"
 date: 2021-03-15
 tags: [data wrangling, data science, airplane safety, visualization]
 header:
-  image: "/images/perceptron/percept.jpg"
+  image:
 excerpt: "Analyzing airplane accident data to evaluate the safety of flying"
 mathjax: "true"
 ---
 
-<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://github.com/Sherbstreit/sherbstreit.github.io/blob/master/images/640_final.pptx]' width='100%' height='600px' frameborder='0'>
-
-
+<iframe src="https://bellevueuniversity-my.sharepoint.com/personal/sherbstreit_my365_bellevue_edu/_layouts/15/Doc.aspx?sourcedoc={ba502882-c007-4da0-927f-7addaa9178ba}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="610px" height="367px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ```python
 # import libraries
