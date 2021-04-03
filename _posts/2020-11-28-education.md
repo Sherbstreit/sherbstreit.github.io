@@ -2429,7 +2429,7 @@ b_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 
 
-    
+![alt]({{ site.url }}{{ site.baseurl }}/output_55_1.png)  
 ![png](output_55_1.png)
     
 
@@ -2451,7 +2451,7 @@ p_df.plot(kind='line', linestyle='dashed', linewidth=5, figsize=(15,10),
 
 
 
-    
+![alt]({{ site.url }}{{ site.baseurl }}output_56_1.png)  
 ![png](output_56_1.png)
     
 
