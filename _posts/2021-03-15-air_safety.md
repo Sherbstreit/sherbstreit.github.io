@@ -11,11 +11,11 @@ mathjax: "true"
 ## Presentation on Airplane Safety
 <iframe src="https://bellevueuniversity-my.sharepoint.com/personal/sherbstreit_my365_bellevue_edu/_layouts/15/Doc.aspx?sourcedoc={ba502882-c007-4da0-927f-7addaa9178ba}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="610px" height="367px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
-## Infographic
+## Infographic highlighting key findings
 <img src="{{ site.url }}{{ site.baseurl }}/images/640_plane_infographic.jpg" alt="linearly separable data">
 
 
-## The code that made it all happen
+## The code that made it all happen:
 ```python
 # import libraries
 import pandas as pd
