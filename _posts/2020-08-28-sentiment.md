@@ -3,7 +3,7 @@ title: "Sentiment Analysis on New York Times Articles"
 date: 2020-08-28
 tags: [data wrangling, data science, Sentiment analysis]
 header:
-  image:
+  image: '/images/sentiment.jpeg'
 excerpt: "Extracting sentiment scores from New York Times Articles"
 mathjax: "true"
 ---
