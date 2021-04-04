@@ -1,4 +1,15 @@
-## Sentiment Analysis on New York Times Article Headings
+---
+title: "Sentiment Analysis on New York Times Articles"
+date: 2020-08-28
+tags: [data wrangling, data science, Sentiment analysis]
+header:
+  image:
+excerpt: "Extracting sentiment scores from New York Times Articles"
+mathjax: "true"
+---
+
+
+## Sentiment Analysis on New York Times Articles
 
 
 ```python
