@@ -1,3 +1,14 @@
+---
+title: "Best Day to Target Baseball Ticket Sales"
+date: 2020-09-28
+tags: [data wrangling, data science, EDA]
+header:
+  image: 
+excerpt: "Using EDA to determine which day in which month should be targeted for marketing"
+mathjax: "true"
+---
+
+
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -696,8 +707,9 @@ ax.set_title('Attendance by Day of the Week')
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_7_1.png" alt="linearly separable data">
     
-![png](output_7_1.png)
+
     
 
 
@@ -717,8 +729,9 @@ ax.set_title('Attendance by Month')
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_8_1.png" alt="linearly separable data">
     
-![png](output_8_1.png)
+
     
 
 
@@ -739,8 +752,8 @@ ax.set_title('Attendance by Opponent')
 
 
 
-    
-![png](output_9_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_9_1.png" alt="linearly separable data">
+
     
 
 
@@ -761,8 +774,8 @@ ax.set_title('Attendance on Nights with Fireworks')
 
 
 
-    
-![png](output_10_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_10_1.png" alt="linearly separable data">
+
     
 
 
@@ -782,8 +795,8 @@ ax.set_title('Attendance on Nights with Bobbleheads Offered')
 
 
 
-    
-![png](output_11_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_11_1.png" alt="linearly separable data">
+
     
 
 
@@ -802,8 +815,8 @@ ax.fig.suptitle('Attendance by Temperature Outside',
 
 
 
-    
-![png](output_12_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_12_1.png" alt="linearly separable data">
+
     
 
 
@@ -822,9 +835,8 @@ ax.fig.suptitle('Attendance by Day of the Month',
 
 
 
-    
-![png](output_13_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_13_1.png" alt="linearly separable data">
+
 
 
 
