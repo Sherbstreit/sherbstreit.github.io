@@ -3,7 +3,7 @@ title: "Best Day to Target Baseball Ticket Sales"
 date: 2020-09-28
 tags: [data wrangling, data science, EDA]
 header:
-  image: 
+  image: '/images/bball.tickets.jpeg'
 excerpt: "Using EDA to determine which day in which month should be targeted for marketing"
 mathjax: "true"
 ---
