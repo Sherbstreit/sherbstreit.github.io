@@ -1,0 +1,306 @@
+## Exploratory Data Analysis on Unemployment Rates and Hourly Pay
+
+
+```R
+library(blsAPI)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(pastecs)
+```
+
+### Data comes for U.S. Bureau of Labor 
+
+
+```R
+# retrieve unemployment rate data
+response <- blsAPI('LNS14000000', return_data_frame = TRUE)
+summary(response)
+```
+
+
+         year              period           periodName           value          
+     Length:27          Length:27          Length:27          Length:27         
+     Class :character   Class :character   Class :character   Class :character  
+     Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+       seriesID        
+     Length:27         
+     Class :character  
+     Mode  :character  
+
+
+
+```R
+# Remove unwanted columns
+df_emp = subset(response, select = -c(period,seriesID))
+head(df_emp)
+```
+
+
+<table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>year</th><th scope=col>periodName</th><th scope=col>value</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>2021</td><td>March   </td><td>6.0</td></tr>
+	<tr><th scope=row>2</th><td>2021</td><td>February</td><td>6.2</td></tr>
+	<tr><th scope=row>3</th><td>2021</td><td>January </td><td>6.3</td></tr>
+	<tr><th scope=row>4</th><td>2020</td><td>December</td><td>6.7</td></tr>
+	<tr><th scope=row>5</th><td>2020</td><td>November</td><td>6.7</td></tr>
+	<tr><th scope=row>6</th><td>2020</td><td>October </td><td>6.9</td></tr>
+</tbody>
+</table>
+
+
+
+
+```R
+# rename columns
+colnames(df_emp) <- c('year', 'month', 'unemployment_rate')
+```
+
+
+```R
+# Retrieve mean earnings per hour data
+response2 <- blsAPI('CES0500000003', return_data_frame = TRUE)
+head(response2)
+```
+
+
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>year</th><th scope=col>period</th><th scope=col>periodName</th><th scope=col>value</th><th scope=col>seriesID</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>2021</td><td>M03</td><td>March   </td><td>29.96</td><td>CES0500000003</td></tr>
+	<tr><th scope=row>2</th><td>2021</td><td>M02</td><td>February</td><td>30.00</td><td>CES0500000003</td></tr>
+	<tr><th scope=row>3</th><td>2021</td><td>M01</td><td>January </td><td>29.92</td><td>CES0500000003</td></tr>
+	<tr><th scope=row>4</th><td>2020</td><td>M12</td><td>December</td><td>29.91</td><td>CES0500000003</td></tr>
+	<tr><th scope=row>5</th><td>2020</td><td>M11</td><td>November</td><td>29.61</td><td>CES0500000003</td></tr>
+	<tr><th scope=row>6</th><td>2020</td><td>M10</td><td>October </td><td>29.52</td><td>CES0500000003</td></tr>
+</tbody>
+</table>
+
+
+
+
+```R
+# Remove unwanted columns
+df_earn = subset(response2, select = -c(period,seriesID))
+head(df_earn)
+```
+
+
+<table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>year</th><th scope=col>periodName</th><th scope=col>value</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>2021</td><td>March   </td><td>29.96</td></tr>
+	<tr><th scope=row>2</th><td>2021</td><td>February</td><td>30.00</td></tr>
+	<tr><th scope=row>3</th><td>2021</td><td>January </td><td>29.92</td></tr>
+	<tr><th scope=row>4</th><td>2020</td><td>December</td><td>29.91</td></tr>
+	<tr><th scope=row>5</th><td>2020</td><td>November</td><td>29.61</td></tr>
+	<tr><th scope=row>6</th><td>2020</td><td>October </td><td>29.52</td></tr>
+</tbody>
+</table>
+
+
+
+
+```R
+# rename columns
+colnames(df_earn) <- c('year', 'month', 'hourly_pay')
+```
+
+
+```R
+# combine earnings and unemployment data
+df <- merge(df_emp, df_earn, all.df_emp=TRUE)
+```
+
+
+```R
+# convert numbers to numeric
+df$unemployment_rate <- as.numeric(as.character(df$unemployment_rate))
+df$hourly_pay <- as.numeric(as.character(df$hourly_pay))
+```
+
+
+```R
+# turn off sci notation
+options(scipen=100)
+cat('Unemployment rate statistcs \n\n')
+# get statistics summary
+print(stat.desc(df$unemployment_rate), digits = 2)
+```
+
+    Unemployment rate statistcs 
+    
+         nbr.val     nbr.null       nbr.na          min          max        range 
+           27.00         0.00         0.00         3.50        14.80        11.30 
+             sum       median         mean      SE.mean CI.mean.0.95          var 
+          160.00         4.00         5.93         0.61         1.26        10.19 
+         std.dev     coef.var 
+            3.19         0.54 
+
+
+
+```R
+cat('Hourly pay statistcs \n\n')
+print(stat.desc(df$hourly_pay), digits = 2)
+options(warn=-1)
+```
+
+    Hourly pay statistcs 
+    
+         nbr.val     nbr.null       nbr.na          min          max        range 
+           27.00         0.00         0.00        27.59        30.07         2.48 
+             sum       median         mean      SE.mean CI.mean.0.95          var 
+          778.05        28.51        28.82         0.17         0.34         0.74 
+         std.dev     coef.var 
+            0.86         0.03 
+
+
+
+```R
+# create histogram of pay rate
+hist(df$hourly_pay,
+main='Hourly Pay Rate Distribution over last 27 months',
+xlab='Dollars',
+xlim=c(27,31),
+col="lightblue",
+freq=FALSE
+)
+```
+
+
+    
+![png](output_13_0.png)
+    
+
+
+
+```R
+# create boxplot of hourly pay rates
+ggplot(df, aes(x=year, y=hourly_pay, fill=year)) + geom_boxplot()+
+ggtitle('Hourly Pay Rate Boxplot by Year') +
+  xlab('Year') + ylab('Hourly Pay in Dollars')
+```
+
+
+    
+![png](output_14_0.png)
+    
+
+
+
+```R
+# create boxplot of unemployment rates
+ggplot(df, aes(x=year, y=unemployment_rate, fill=year)) + geom_boxplot()+
+ggtitle('Unemployment rate Boxplot by year') +
+  xlab('Year') + ylab('Unemployment Rate in %')
+```
+
+
+    
+![png](output_15_0.png)
+    
+
+
+
+```R
+# create scatterplot
+ggplot(df, aes(x=unemployment_rate, y=hourly_pay, color=year)) + 
+    geom_point(size=6) +
+ggtitle('Unemployment Rates and Hourly Pay by Year') +
+  xlab('Unemployment Rate in %') + ylab('Mean Hourly Earnings')
+```
+
+
+    
+![png](output_16_0.png)
+    
+
+
+
+```R
+# display data classes
+class = sapply(df, class)
+var_class = t(class)
+var_class
+```
+
+
+<table>
+<caption>A matrix: 1 × 4 of type chr</caption>
+<thead>
+	<tr><th scope=col>year</th><th scope=col>month</th><th scope=col>unemployment_rate</th><th scope=col>hourly_pay</th></tr>
+</thead>
+<tbody>
+	<tr><td>character</td><td>character</td><td>numeric</td><td>numeric</td></tr>
+</tbody>
+</table>
+
+
+
+
+```R
+# convert to df, prepare index
+var_class = as.data.frame(var_class, header=FALSE)
+var_class['index'] = 'dtype'
+```
+
+
+```R
+# set index
+rownames(var_class) <- var_class$index
+var_class$index = NULL
+```
+
+
+```R
+# create basic stats summary and add to dtype
+basic_stats = do.call(cbind, lapply(df, summary))
+summary_report = rbind(basic_stats,var_class)
+```
+
+
+```R
+# give basic statistics and data types of variables
+summary_report
+```
+
+
+<table>
+<caption>A data.frame: 7 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>year</th><th scope=col>month</th><th scope=col>unemployment_rate</th><th scope=col>hourly_pay</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>Min.</th><td>27       </td><td>27       </td><td>3.5             </td><td>27.59           </td></tr>
+	<tr><th scope=row>1st Qu.</th><td>character</td><td>character</td><td>3.6             </td><td>28.095          </td></tr>
+	<tr><th scope=row>Median</th><td>character</td><td>character</td><td>4               </td><td>28.51           </td></tr>
+	<tr><th scope=row>Mean</th><td>27       </td><td>27       </td><td>5.92592592592593</td><td>28.8166666666667</td></tr>
+	<tr><th scope=row>3rd Qu.</th><td>character</td><td>character</td><td>6.8             </td><td>29.565          </td></tr>
+	<tr><th scope=row>Max.</th><td>character</td><td>character</td><td>14.8            </td><td>30.07           </td></tr>
+	<tr><th scope=row>dtype</th><td>character</td><td>character</td><td>numeric         </td><td>numeric         </td></tr>
+</tbody>
+</table>
+
+
+
+The year and month variables are categorical and evenly spread through the set. The unemployment rate is much higher due to the pandemic, but interestingly hourly pay rates increased as the unemployment rate rose. The pay rates increased more in 2020 than in 2019.
+
+
+```R
+# Save BLS data to .csv file
+write.csv(df,'bls_unemp_pay.csv')
+```
