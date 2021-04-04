@@ -9,7 +9,7 @@ mathjax: "true"
 ---
 
 ## EDA Findings
-<iframe src="https://bellevueuniversity-my.sharepoint.com/personal/sherbstreit_my365_bellevue_edu/_layouts/15/Doc.aspx?sourcedoc={3f4f618d-aef0-4824-85da-ff2cb4802fd2}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="610px" height="367px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<iframe src="https://bellevueuniversity-my.sharepoint.com/personal/sherbstreit_my365_bellevue_edu/_layouts/15/Doc.aspx?sourcedoc={3f4f618d-aef0-4824-85da-ff2cb4802fd2}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="962px" height="565px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
 ## The Data
 
