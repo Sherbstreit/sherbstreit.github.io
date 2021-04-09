@@ -8,7 +8,7 @@ excerpt: "Extracting sentiment scores from New York Times Articles"
 mathjax: "true"
 ---
 
-## Import libraries and load the dataframe
+### Import libraries and load the dataframe
 
 ```python
 import pandas as pd
@@ -17,7 +17,6 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 ### This is a test file that gives us a simple overview of how the sentiment analysis works
 ```python
-# load df and view
 df = pd.read_csv("DailyComments.csv")
 df
 ```
@@ -89,12 +88,12 @@ df
 
 
 
-## Now we need to create a variable to hold sentiment analyser function
+### Now we need to create a variable to hold sentiment analyser function
 ```python
 run_sentiment = SentimentIntensityAnalyzer()
 ```
 
-## We apply this function to the comments section to analyze the negative, neutral, and positive sentiment scores. The compound score is an overall assessment of the sentiment
+### We apply this function to the comments section to analyze the negative, neutral, and positive sentiment scores. The compound score is an overall assessment of the sentiment
 ```python
 # Apply Vader analyzer to comments
 df['compound'] = [run_sentiment.polarity_scores(v)['compound'] for v in df['comments']]
@@ -103,7 +102,7 @@ df['neutral'] = [run_sentiment.polarity_scores(v)['neu'] for v in df['comments']
 df['positive'] = [run_sentiment.polarity_scores(v)['pos'] for v in df['comments']]
 ```
 
-## Let's see how it did
+### Let's see how it did
 ```python
 df
 ```
@@ -207,7 +206,7 @@ df
 
 
 
-## Now let's test our sentiment analyzer on some real-world data
+### Now let's test our sentiment analyzer on some real-world data
 ```python
 nyt_df = pd.read_csv("ArticlesApril2017.csv")
 nyt_df.head()
@@ -448,7 +447,7 @@ sub_df
 </div>
 
 
-# We run the analyzer in the same way we did with our test data
+### We run the analyzer in the same way we did with our test data
 
 ```python
 sub_df['compound'] = [run_sentiment.polarity_scores(v)['compound'] for v in sub_df['headline']]
@@ -457,7 +456,7 @@ sub_df['neutral'] = [run_sentiment.polarity_scores(v)['neu'] for v in sub_df['he
 sub_df['positive'] = [run_sentiment.polarity_scores(v)['pos'] for v in sub_df['headline']]
 ```
 
-## Let's see our results
+### Let's see our results
 ```python
 sub_df.head(20)
 ```
