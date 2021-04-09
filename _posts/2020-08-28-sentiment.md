@@ -353,9 +353,9 @@ nyt_df.head()
 
 
 
-
+### Clean up the data a bit
 ```python
-# only keep headline and media type from df
+
 sub_df = nyt_df.loc[:,['headline', 'typeOfMaterial']]
 sub_df
 ```
