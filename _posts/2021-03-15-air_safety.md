@@ -16,8 +16,9 @@ mathjax: "true"
 
 
 ## The code that made it all happen:
+
+### First import the necessary libraries
 ```python
-# import libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,7 +26,7 @@ from pandas import read_excel
 import seaborn as sns
 ```
 
-
+### Take a peek at the data
 ```python
 df = pd.read_excel('airline_countries.xls')
 df.head()
@@ -130,10 +131,9 @@ df.head()
 
 
 
-
+### We need to create country codes in order to use the geospatial data type in Tableau to create geographical visuals. Each country will be assigned a code which is placed in a new column
 ```python
 import pycountry 
-# create country codes to use geospatial data in Tableau
 def alpha3code(column):
     CODE=[]
     for country in column:
@@ -144,7 +144,6 @@ def alpha3code(column):
         except:
             CODE.append('None')
     return CODE
-# create a column for country code 
 df['CODE']=alpha3code(df.Country)
 df.head()
 ```
@@ -254,11 +253,9 @@ df.head()
 
 
 
-
+### import geopandas dataset 'naturalearth_lowres' to get additional location data
 ```python
 import geopandas
-# first merge geopandas data with my data
-# 'naturalearth_lowres' is geopandas dataset
 world = geopandas.read_file(geopandas.datasets.get_path('naturalearth_lowres'))
 # rename the columns so that I can merge with my data
 world.columns=['pop_est', 'continent', 'name', 'CODE', 'gdp_md_est', 'geometry']
@@ -402,15 +399,14 @@ merge.head()
 
 
 
-
+### Let's group the data by continent and save it as csv file so it can be used in Tableau
 ```python
-# group by continent and save as csv to use in Tableau
 grouped_cont = merge.groupby('continent').sum()
 grouped_cont.to_csv('by_continent.csv', index=True)
 merge.to_csv('by_continent_full.csv', index=True)
 ```
 
-
+### Convert seats per Km/week to seats per mi/year 
 ```python
 # number weeks/year = 52.1429
 # conversion factor from km to mile = 0.62137
@@ -418,10 +414,8 @@ merge.to_csv('by_continent_full.csv', index=True)
 df['mil_miles_year_per_seat'] = (df['avail_seat_km_per_week'] * 52.1429 * 0.62137) / 1000000
 ```
 
-
+### We can take an average occurance rate for 1985-1999 and 2000-2014 and divide that by the number of available seats
 ```python
-# took mean number of fatalities over 14 year periods divided 
-# by the number of miles flown
 df['fatality_per_mil_mile_85_99'] = (df['fatalities_85_99']/14) / df['mil_miles_year_per_seat']
 df['fatality_per_mil_mile_00_14'] = (df['fatalities_00_14']/14) / df['mil_miles_year_per_seat']
 df.head()
@@ -556,7 +550,7 @@ mean_mile_85 = (df['fatality_per_mil_mile_85_99'].mean())
 mean_mile_00 = (df['fatality_per_mil_mile_00_14'].mean())
 ```
 
-
+### Create a new dataframe to store this data
 ```python
 lst = ['Between 1985 and 1999', 'Between 2000 and 2014'] 
   
@@ -612,15 +606,13 @@ fatal_by_mile
 
 
 
-
+### Save this for use in Tableau
 ```python
-# convert to csv format to use in Tableau
 fatal_by_mile.to_csv('fatal_mile.csv', index=False)
 ```
 
-
+### Flter for U.S. data only
 ```python
-# filter for U.S. data only
 airlines_us_df = df[(df.Country == 'United States')]
 airlines_us_df.head()
 ```
@@ -748,13 +740,12 @@ airlines_us_df.head()
 
 
 
-
+### Find the average number of fatalities/year between 2000-2014
 ```python
-# average number of fatalities/year between 2000-2014
 us_each00 = (airlines_us_df['fatalities_00_14'].sum())/14
 ```
 
-
+### Gather some statistics to compare rare fatalities to death in an airplane crash
 ```python
 # link to population info
 # https://www.multpl.com/united-states-population/table/by-year
@@ -837,7 +828,7 @@ odds_fire
 
 
 
-
+### Create a dataframe with this data and save as csv
 ```python
 lst = ['Airplane Crash', 'Lightening Strike', 'Choking', 'Maternal Death in Childbirth', 'Burned in Fire'] 
   
@@ -909,7 +900,7 @@ compare_df
 
 
 
-
+### Get some data on vehicle accidents and fatalities
 ```python
 cars_data = pd.read_csv('table_02_17_121019.csv')  
 cars_data.head()
@@ -1087,7 +1078,7 @@ cars_data.head()
 
 
 
-
+### Reformat and clean the data
 ```python
 # rename columns
 cars_data.columns = cars_data.iloc[0]
@@ -1458,7 +1449,7 @@ cars_data['Fatalities'] = cars_data['Fatalities'].astype(int)
 cars_data['Injured persons'] = cars_data['Injured persons'].astype(int)
 ```
 
-
+### Calculate the number of fatalities and accidents per mile traveled
 ```python
 cars_data['car_fatality_per_mil_mile'] = cars_data['Fatalities'] / cars_data['Vehicle-miles (millions)']
 cars_data['car_injury_per_mil_mile'] = cars_data['Injured persons'] / cars_data['Vehicle-miles (millions)']
@@ -1560,7 +1551,7 @@ cars_data.head()
 car_mile = cars_data[['car_fatality_per_mil_mile', 'car_injury_per_mil_mile']]
 ```
 
-
+### Get airplane data on individual years
 ```python
 fly_data = pd.read_csv('better_airplane_data.csv') 
 fly_data.head()
@@ -1737,7 +1728,7 @@ fly_data.head()
 </div>
 
 
-
+### Clean up this data and reformat
 
 ```python
 fly_data.columns = fly_data.iloc[0]
@@ -2207,7 +2198,7 @@ fly_data['injury_per_mil_mile'] = fly_data['Total accidents'] / fly_data['Aircra
 air_mile = fly_data[['fatal_per_mil_mile', 'injury_per_mil_mile']]
 ```
 
-
+### Merge our car and airplane data together to create dataframe showing direct comparisons. Export this data as csv to be used in Tableau
 ```python
 both_mile = car_mile.merge(air_mile, left_index=True, right_index=True)
 ```
