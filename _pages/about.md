@@ -21,58 +21,22 @@ header:
 
 <section id="two" class="spotlights">
 	<section>
-		<a href="#" class="image">
-			<img src="assets/images/profile-pic.jpg" alt="" data-position="center center">
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
-					<h3>Work Experience</h3>
+					<h3>Work Experience and Education</h3>
 				</header>
-				<p>Working for a large theme park, I have integrated, developed, and maintained a variety of PowerBI dashboards for many departments, bringing insights on financials and workload labor. By providing these dashboards, senior leaders have the power to dive in to their data and uncover insights they did not have access to before. </p>
-			</div>
-		</div>
-	</section>
-  <section>
-		<a href="#" class="image">
-			<img src="assets/images/shen.jpg" alt="" data-position="top center">
-		</a>
-		<div class="content">
-			<div class="inner">
-				<header class="major">
-					<h3>Education</h3>
-				</header>
-				<p>I earned a B.A. in Business Administration with a concentration in Entertainment & Tourism Management. Through the curiosity to learn more about data and how these insights can drive business decisions, I decided to further my education with a M.S. in Data Science. </p>
+				<p> 
+					I started my career in veterinary technology. I loved the science behind my work so I went and got my B.S. in Biochemistry. From there I started working in animal nutrition R&D at Novus International. This position gave me a solid understanding of the scientific method. I was fortunate to be a part of several advances in animal nutrition during this time. I co-authored two scientific articles that were published in the Journal of Animal Science, validated methods to be presented at animal nutrition conferences, and collaborated with the USDA to validate a method to extract and quantify trypsin inhibitor from soybean meal for use in animal feed. In early 2020 I was given an opportunity by a former colleague to move to MilliporeSigma. This role gave me new skills working in Quality Control. I took additional responsibilities at every opportunity and was recognized at my one year review with a promotion to Senior Associate Scientist. My responsibilites in this role include scheduling for the QC department at my location, introducing new products, creating, updating, and approving documents for the QC group, completing assays per business demand, training team members, and troubleshooting any issues that myself or team members face. Troubleshooting data is what led me to pursue data science. I enjoy statistical anaylsis and investigating data anomalies. I will graduate with my M.S. in Data Science in June 2021. </p>
 			</div>
 		</div>
 	</section>
 	<section>
-		<a href="#" class="image">
-			<img src="assets/images/shen2.jpg" alt="" data-position="center center">
-		</a>
 		<div class="content">
 			<div class="inner">
 				<header class="major">
 					<h3>Hobbies</h3>
 				</header>
-				<p>Although I am an analytical thinker, my creativity thrives through my love for photography, crafting, sewing, and quilting. I have a passion for traveling, with the goal to visit all 62 U.S. National Parks. I have visited over 50% of them, my favorite being Glacier National Park in Montana. Along with my passion for photography, the photos on my portfolio site are taken from my travels. </p>
+				<p>I like to do projects around the house in my free time, such as building furniture, home improvement tasks and yard work. I also enjoy going to the gym, outdoor activities, traveling, entertaining friends, and annoying my dogs.  </p>
 			</div>
 		</div>
-	</section>
-	<section>
-		<a href="#" class="image">
-			<img src="assets/images/purpleflower.jpg" alt="" data-position="center center">
-		</a>
-		<div class="content">
-			<div class="inner">
-				<header class="major">
-					<h3>Skills</h3>
-				</header>
-				<ul class="alt">
-					<li><b>Business Intelligence:</b> Power BI</li>
-					<li><b>Programming Languages:</b> Python, R</li>
-					<li><b>Knowledge of:</b> SQL, Tableau</li>
-				</ul>
-			</div>
-		</div>
-	</section>
