@@ -8,9 +8,18 @@ excerpt: "Identifying when a customer is about to leave a service"
 mathjax: "true"
 ---
 
-## Identifying customer churn before it is too late
 
-<iframe src="https://bellevueuniversity-my.sharepoint.com/personal/sherbstreit_my365_bellevue_edu/_layouts/15/Doc.aspx?sourcedoc={7a509655-7e28-4c02-b573-aa1fff5e761f}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="962px" height="565px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC1.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC2.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC3.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC4.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC5.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC6.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC7.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC8.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC9.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/CC10.jpeg" alt="linearly separable data">
+
 
 ## The code used to accomplish this:
 
