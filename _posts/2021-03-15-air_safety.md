@@ -8,7 +8,18 @@ excerpt: "Analyzing airplane accident data to evaluate the safety of flying"
 mathjax: "true"
 ---
 
-## Infographic highlighting key findings
+## Key Findings
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane1.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane2.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane3.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane4.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane5.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/plane6.jpeg" alt="linearly separable data">
+
+
+
+
+## Infographic
 <img src="{{ site.url }}{{ site.baseurl }}/images/640_plane_infographic.jpg" alt="linearly separable data">
 
 
