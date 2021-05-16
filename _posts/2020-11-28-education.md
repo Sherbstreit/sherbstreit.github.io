@@ -8,6 +8,16 @@ excerpt: "Finding the true cost of education using web scraping and SQL"
 mathjax: "true"
 ---
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/college1.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/college2.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/college3.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/college4.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/college5.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/college6.jpeg" alt="linearly separable data">
+
+
+
+
 
 ## The Data
 
