@@ -1,0 +1,857 @@
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn import model_selection
+from sklearn.model_selection import train_test_split
+
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.metrics import accuracy_score, confusion_matrix, recall_score, classification_report
+from sklearn.cluster import KMeans
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import BaggingClassifier, RandomForestClassifier, ExtraTreesClassifier
+from sklearn.model_selection import RepeatedStratifiedKFold, cross_val_score, GridSearchCV
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+
+```python
+df = pd.read_csv('Brain_GSE50161.csv')
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>samples</th>
+      <th>type</th>
+      <th>1007_s_at</th>
+      <th>1053_at</th>
+      <th>117_at</th>
+      <th>121_at</th>
+      <th>1255_g_at</th>
+      <th>1294_at</th>
+      <th>1316_at</th>
+      <th>1320_at</th>
+      <th>...</th>
+      <th>AFFX-r2-Ec-bioD-3_at</th>
+      <th>AFFX-r2-Ec-bioD-5_at</th>
+      <th>AFFX-r2-P1-cre-3_at</th>
+      <th>AFFX-r2-P1-cre-5_at</th>
+      <th>AFFX-ThrX-3_at</th>
+      <th>AFFX-ThrX-5_at</th>
+      <th>AFFX-ThrX-M_at</th>
+      <th>AFFX-TrpnX-3_at</th>
+      <th>AFFX-TrpnX-5_at</th>
+      <th>AFFX-TrpnX-M_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>834</td>
+      <td>ependymoma</td>
+      <td>12.498150</td>
+      <td>7.604868</td>
+      <td>6.880934</td>
+      <td>9.027128</td>
+      <td>4.176175</td>
+      <td>7.224920</td>
+      <td>6.085942</td>
+      <td>6.835999</td>
+      <td>...</td>
+      <td>9.979005</td>
+      <td>9.926470</td>
+      <td>12.719785</td>
+      <td>12.777792</td>
+      <td>5.403657</td>
+      <td>4.870548</td>
+      <td>4.047380</td>
+      <td>3.721936</td>
+      <td>4.516434</td>
+      <td>4.749940</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>835</td>
+      <td>ependymoma</td>
+      <td>13.067436</td>
+      <td>7.998090</td>
+      <td>7.209076</td>
+      <td>9.723322</td>
+      <td>4.826126</td>
+      <td>7.539381</td>
+      <td>6.250962</td>
+      <td>8.012549</td>
+      <td>...</td>
+      <td>11.924749</td>
+      <td>11.215930</td>
+      <td>13.605662</td>
+      <td>13.401342</td>
+      <td>5.224555</td>
+      <td>4.895315</td>
+      <td>3.786437</td>
+      <td>3.564481</td>
+      <td>4.430891</td>
+      <td>4.491416</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>836</td>
+      <td>ependymoma</td>
+      <td>13.068179</td>
+      <td>8.573674</td>
+      <td>8.647684</td>
+      <td>9.613002</td>
+      <td>4.396581</td>
+      <td>7.813101</td>
+      <td>6.007746</td>
+      <td>7.178156</td>
+      <td>...</td>
+      <td>12.154405</td>
+      <td>11.532460</td>
+      <td>13.764593</td>
+      <td>13.477800</td>
+      <td>5.303565</td>
+      <td>5.052184</td>
+      <td>4.005343</td>
+      <td>3.595382</td>
+      <td>4.563494</td>
+      <td>4.668827</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>837</td>
+      <td>ependymoma</td>
+      <td>12.456040</td>
+      <td>9.098977</td>
+      <td>6.628784</td>
+      <td>8.517677</td>
+      <td>4.154847</td>
+      <td>8.361843</td>
+      <td>6.596064</td>
+      <td>6.347285</td>
+      <td>...</td>
+      <td>11.969072</td>
+      <td>11.288801</td>
+      <td>13.600828</td>
+      <td>13.379029</td>
+      <td>4.953429</td>
+      <td>4.708371</td>
+      <td>3.892318</td>
+      <td>3.759429</td>
+      <td>4.748381</td>
+      <td>4.521275</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>838</td>
+      <td>ependymoma</td>
+      <td>12.699958</td>
+      <td>8.800721</td>
+      <td>11.556188</td>
+      <td>9.166309</td>
+      <td>4.165891</td>
+      <td>7.923826</td>
+      <td>6.212754</td>
+      <td>6.866387</td>
+      <td>...</td>
+      <td>11.411701</td>
+      <td>11.169317</td>
+      <td>13.751442</td>
+      <td>13.803646</td>
+      <td>4.892677</td>
+      <td>4.773806</td>
+      <td>3.796856</td>
+      <td>3.577544</td>
+      <td>4.504385</td>
+      <td>4.541450</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 54677 columns</p>
+</div>
+
+
+
+
+```python
+df.drop('samples', axis=1, inplace=True)
+```
+
+
+```python
+df.isnull().values.any()
+```
+
+
+
+
+    False
+
+
+
+
+```python
+df['type'].value_counts().plot(kind = 'bar', colormap='Pastel2')
+plt.title('Frequency of Case Types in Data')
+```
+
+
+
+
+    Text(0.5, 1.0, 'Frequency of Case Types in Data')
+
+
+
+
+    
+![png](output_4_1.png)
+    
+
+
+
+```python
+ep_df = df[df['type'] == 'ependymoma'] 
+gl_df = df[df['type'] == 'glioblastoma'] 
+me_df = df[df['type'] == 'medulloblastoma'] 
+pi_df = df[df['type'] == 'pilocytic_astrocytoma'] 
+n_df = df[df['type'] == 'normal'] 
+```
+
+
+```python
+me_highest = me_df.mean().abs().sort_values(ascending = False)
+plt.figure(figsize=(6, 4))
+me_highest.head(5).plot(kind = 'bar', color='lightblue')
+plt.title('5 Highest Expression Gene Levels in Medulloblastoma')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_6_1.png)
+    
+
+
+
+```python
+pi_highest = pi_df.mean().abs().sort_values(ascending = False)
+plt.figure(figsize=(6, 4))
+pi_highest.head(5).plot(kind = 'bar', color='lightblue')
+plt.title('5 Highest Expression Gene Levels in Pilocytic Astrocytoma')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_7_1.png)
+    
+
+
+
+```python
+ep_highest = ep_df.mean().abs().sort_values(ascending = False)
+plt.figure(figsize=(6, 4))
+ep_highest.head(5).plot(kind = 'bar', color='lightblue')
+plt.title('5 Highest Expression Gene Levels in Ependymoma')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_8_1.png)
+    
+
+
+
+```python
+gl_highest = gl_df.mean().abs().sort_values(ascending = False)
+plt.figure(figsize=(6, 4))
+gl_highest.head(5).plot(kind = 'bar', color='lightblue')
+plt.title('5 Highest Expression Gene Levels in Glioblastoma')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_9_1.png)
+    
+
+
+
+```python
+n_highest = n_df.mean().abs().sort_values(ascending = False)
+plt.figure(figsize=(6, 4))
+n_highest.head(5).plot(kind = 'bar', color='lightblue')
+plt.title('5 Highest Expression Gene Levels in Healthy Samples')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_10_1.png)
+    
+
+
+
+```python
+ep_highest = pd.DataFrame(ep_highest, columns= ['ependymoma'])
+gl_highest = pd.DataFrame(gl_highest, columns= ['glioblastoma'])
+me_highest = pd.DataFrame(me_highest, columns= ['medulloblastoma'])
+pi_highest = pd.DataFrame(pi_highest, columns= ['pilocytic_astrocytoma'])
+n_highest = pd.DataFrame(n_highest, columns= ['normal'])
+
+data_frames = [ep_highest, gl_highest, me_highest, pi_highest, n_highest]
+by_tumor = pd.concat(data_frames, join='outer', axis=1).fillna('NA')
+```
+
+
+```python
+var_df = by_tumor.var(axis=1)
+var_df = pd.DataFrame(var_df, columns=['variance'])
+data_frames = [by_tumor, var_df]
+var_df = pd.concat(data_frames, join='outer', axis=1).fillna('NA')
+highest_var_all = var_df.sort_values(by = 'variance',ascending = False)
+highest_var = highest_var_all.iloc[:10]
+highest_var.drop(['variance'], axis=1, inplace=True)
+```
+
+
+```python
+highest_var_all.head(20)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ependymoma</th>
+      <th>glioblastoma</th>
+      <th>medulloblastoma</th>
+      <th>pilocytic_astrocytoma</th>
+      <th>normal</th>
+      <th>variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1568612_at</th>
+      <td>4.426834</td>
+      <td>5.953667</td>
+      <td>9.186332</td>
+      <td>4.615742</td>
+      <td>11.354087</td>
+      <td>9.270301</td>
+    </tr>
+    <tr>
+      <th>221805_at</th>
+      <td>4.472807</td>
+      <td>7.004822</td>
+      <td>6.367429</td>
+      <td>5.506021</td>
+      <td>12.268795</td>
+      <td>9.175552</td>
+    </tr>
+    <tr>
+      <th>203001_s_at</th>
+      <td>6.650867</td>
+      <td>9.083943</td>
+      <td>12.667659</td>
+      <td>7.682313</td>
+      <td>13.073175</td>
+      <td>8.461631</td>
+    </tr>
+    <tr>
+      <th>210016_at</th>
+      <td>4.981243</td>
+      <td>6.828656</td>
+      <td>10.259218</td>
+      <td>6.157811</td>
+      <td>11.413329</td>
+      <td>7.651900</td>
+    </tr>
+    <tr>
+      <th>206502_s_at</th>
+      <td>6.451840</td>
+      <td>8.974249</td>
+      <td>12.738033</td>
+      <td>5.688730</td>
+      <td>8.239764</td>
+      <td>7.579641</td>
+    </tr>
+    <tr>
+      <th>208650_s_at</th>
+      <td>9.592566</td>
+      <td>8.122156</td>
+      <td>11.544823</td>
+      <td>4.728293</td>
+      <td>6.186445</td>
+      <td>7.275984</td>
+    </tr>
+    <tr>
+      <th>203000_at</th>
+      <td>6.985046</td>
+      <td>9.446125</td>
+      <td>12.684769</td>
+      <td>8.059411</td>
+      <td>12.886813</td>
+      <td>7.175878</td>
+    </tr>
+    <tr>
+      <th>231771_at</th>
+      <td>5.608844</td>
+      <td>5.695147</td>
+      <td>4.601958</td>
+      <td>4.767646</td>
+      <td>11.027777</td>
+      <td>7.104692</td>
+    </tr>
+    <tr>
+      <th>242128_at</th>
+      <td>4.845109</td>
+      <td>5.012456</td>
+      <td>10.729009</td>
+      <td>4.392994</td>
+      <td>5.089728</td>
+      <td>7.020662</td>
+    </tr>
+    <tr>
+      <th>230303_at</th>
+      <td>5.913120</td>
+      <td>7.029332</td>
+      <td>7.980667</td>
+      <td>5.552178</td>
+      <td>11.995467</td>
+      <td>6.696378</td>
+    </tr>
+    <tr>
+      <th>235066_at</th>
+      <td>5.428295</td>
+      <td>7.245082</td>
+      <td>9.470132</td>
+      <td>6.152892</td>
+      <td>11.744193</td>
+      <td>6.693829</td>
+    </tr>
+    <tr>
+      <th>205551_at</th>
+      <td>6.255732</td>
+      <td>7.354266</td>
+      <td>10.466448</td>
+      <td>6.260320</td>
+      <td>11.859884</td>
+      <td>6.625736</td>
+    </tr>
+    <tr>
+      <th>201292_at</th>
+      <td>8.312435</td>
+      <td>9.921030</td>
+      <td>11.183001</td>
+      <td>6.868304</td>
+      <td>4.676963</td>
+      <td>6.514447</td>
+    </tr>
+    <tr>
+      <th>1556096_s_at</th>
+      <td>4.733767</td>
+      <td>5.926875</td>
+      <td>7.962087</td>
+      <td>4.923418</td>
+      <td>10.820165</td>
+      <td>6.509639</td>
+    </tr>
+    <tr>
+      <th>205626_s_at</th>
+      <td>9.709628</td>
+      <td>6.427799</td>
+      <td>6.641395</td>
+      <td>5.983607</td>
+      <td>11.834183</td>
+      <td>6.484015</td>
+    </tr>
+    <tr>
+      <th>244118_at</th>
+      <td>3.763480</td>
+      <td>4.433494</td>
+      <td>5.849084</td>
+      <td>3.885723</td>
+      <td>9.844689</td>
+      <td>6.435430</td>
+    </tr>
+    <tr>
+      <th>239765_at</th>
+      <td>4.509748</td>
+      <td>5.438105</td>
+      <td>7.529430</td>
+      <td>4.506330</td>
+      <td>10.439304</td>
+      <td>6.410024</td>
+    </tr>
+    <tr>
+      <th>240065_at</th>
+      <td>10.877876</td>
+      <td>5.480430</td>
+      <td>5.048728</td>
+      <td>5.414344</td>
+      <td>5.032038</td>
+      <td>6.390365</td>
+    </tr>
+    <tr>
+      <th>228636_at</th>
+      <td>6.549916</td>
+      <td>6.788032</td>
+      <td>11.991340</td>
+      <td>6.389667</td>
+      <td>9.916519</td>
+      <td>6.308417</td>
+    </tr>
+    <tr>
+      <th>221916_at</th>
+      <td>6.160308</td>
+      <td>7.986985</td>
+      <td>7.744881</td>
+      <td>6.853177</td>
+      <td>12.514232</td>
+      <td>6.206476</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+highest_var.plot(kind = 'bar', figsize=(16,7), colormap='Set2',
+                edgecolor='white', linewidth=1, width=0.7)
+plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5))
+plt.title('Genes with the Greatest Variance in Expression')
+plt.ylabel('Expression Levels')
+```
+
+
+
+
+    Text(0, 0.5, 'Expression Levels')
+
+
+
+
+    
+![png](output_14_1.png)
+    
+
+
+## Several Genes are Downregulated in all Cancers in this Study
+- 221805_at is the probe that corresponds to the gene NEFL. The NEFL gene encodes the neurofilament light polypeptide, a subunit that forms type IV intermediate filament heteropolymers, which are a major component of the neuronal cytoskeleton.
+- The 231771_at probe corresponds to the GJB6 gene. GJB6 provides instructions for making a protein called gap junction beta 6, more commonly known as connexin 30. The connexin gene family codes for the protein subunits of gap junction channels that mediate direct diffusion of ions and metabolites between the cytoplasm of adjacent cells.
+- 230303_at corresponds to the SYNPR gene. It codes intrinsic membrane proteins of small synaptic vesicles.
+
+This study indicates these genes can potentially function as tumor suppressors.
+
+## CD24 is Upregulated in all Tumors except Pilocytic Astrocytoma
+Th 208650_s_at probe corresponds the the CD24 gene, which is actively being investigated as an immunotherapy target. This gene encodes a sialoglycoprotein that is expressed on mature granulocytes and B cells and modulates growth and differentiation signals to these cells. 
+
+
+
+```python
+X = df.drop(columns='type')
+y = df['type']
+```
+
+
+```python
+y = LabelEncoder().fit_transform(y)
+# 0 = ependymoma
+# 1 = glioblastoma
+# 2 = medulloblastoma
+# 3 = normal
+# 4 = pilocytic_astrocytoma
+```
+
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2,stratify = y,random_state = 22)
+```
+
+
+```python
+scaler = StandardScaler().fit(X_train)
+X_train = scaler.transform(X_train)
+X_test = scaler.transform(X_test)
+```
+
+
+```python
+pca = PCA()
+pca.fit_transform(X_train)
+```
+
+
+
+
+    array([[-4.41578546e+01, -4.51118947e+01,  2.55978610e+01, ...,
+            -1.05687588e+00, -4.54400309e+00,  4.91578492e-14],
+           [ 1.00681605e+02,  1.04188967e+02, -9.96509006e+01, ...,
+             1.57107564e+00,  6.46214592e-01,  4.91578492e-14],
+           [ 1.52939858e+02, -4.91439046e+01,  8.31693822e+00, ...,
+             1.13671169e+01, -1.07459398e+01,  4.91578492e-14],
+           ...,
+           [-1.10456320e+02, -7.81547913e+00, -1.91106985e+01, ...,
+            -3.09256812e-01, -1.89798492e+00,  4.91578492e-14],
+           [ 8.70516223e+01, -9.04411513e+01, -3.74544128e+01, ...,
+            -3.98656503e+01, -3.69200492e+01,  4.91578492e-14],
+           [-1.36889750e+02,  1.33088890e+02, -6.91548919e+01, ...,
+             3.98808388e-01,  4.60823203e-01,  4.91578492e-14]])
+
+
+
+
+```python
+total=sum(pca.explained_variance_)
+k=0
+current_variance=0
+while current_variance/total < 0.99:
+    current_variance += pca.explained_variance_[k]
+    k=k+1
+k
+```
+
+
+
+
+    97
+
+
+
+
+```python
+pca = PCA(n_components=k)
+X_train_pca=pca.fit_transform(X_train)
+X_test_pca=pca.transform(X_test)
+```
+
+
+```python
+cum_sum = pca.explained_variance_ratio_.cumsum()
+cum_sum = cum_sum*100
+plt.bar(range(k), cum_sum, color = 'r',alpha=0.3)
+plt.title('99% of variance is explained by 97 features')
+plt.ylabel('cumulative explained variance')
+plt.xlabel('number of components')
+plt.locator_params(axis='y', nbins=10)
+
+```
+
+
+    
+![png](output_24_0.png)
+    
+
+
+
+```python
+def evaluate_model(X, y, model):
+    k = 5
+    rep = 3
+    cv = RepeatedStratifiedKFold(n_splits=k, n_repeats=rep, random_state=21)
+    score = cross_val_score(model, X, y, scoring='f1_weighted', cv=cv, n_jobs=-1)
+    return score
+
+def get_models():
+    models, names = list(), list()
+    
+    models.append(SVC())
+    names.append('SVC')
+    
+    models.append(KNeighborsClassifier())
+    names.append('KNN')
+    
+    models.append(BaggingClassifier())
+    names.append('BC')
+    
+    models.append(RandomForestClassifier())
+    names.append('RF')
+        
+    models.append(ExtraTreesClassifier())
+    names.append('ET')
+    
+    return models, names
+```
+
+
+```python
+models, names = get_models()
+results = list()
+
+for i in range(len(models)):
+    score = evaluate_model(X_train_pca, y_train, models[i])
+    results.append(score)
+    print('%s %.3f (%.3f)' % (names[i], np.mean(score), np.std(score)))
+
+plt.boxplot(results, labels=names)
+plt.title('Baseline Model Performance')
+
+plt.show()
+```
+
+    SVC 0.846 (0.051)
+    KNN 0.776 (0.104)
+    BC 0.714 (0.078)
+    RF 0.682 (0.097)
+    ET 0.721 (0.116)
+
+
+
+    
+![png](output_26_1.png)
+    
+
+
+
+```python
+param_grid = {'C': [0.1,1, 10, 100], 'gamma': [1,0.1,0.01,0.001],'kernel': ['rbf', 'poly', 'sigmoid']}
+grid = GridSearchCV(SVC(), param_grid, refit=True, verbose=1)
+grid.fit(X_train_pca, y_train)
+```
+
+    Fitting 5 folds for each of 48 candidates, totalling 240 fits
+
+
+    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+    [Parallel(n_jobs=1)]: Done 240 out of 240 | elapsed:    0.6s finished
+
+
+
+
+
+    GridSearchCV(estimator=SVC(),
+                 param_grid={'C': [0.1, 1, 10, 100], 'gamma': [1, 0.1, 0.01, 0.001],
+                             'kernel': ['rbf', 'poly', 'sigmoid']},
+                 verbose=1)
+
+
+
+
+```python
+print(grid.best_estimator_)
+```
+
+    SVC(C=0.1, gamma=1, kernel='poly')
+
+
+
+```python
+grid_predictions = grid.predict(X_test_pca)
+print('Confusion Matrix \n', confusion_matrix(y_test, grid_predictions), '\n')
+target_names = ['ependymoma', 'glioblastoma', 'medulloblastoma', 'normal', 'pilocytic astrocytoma']
+print(classification_report(y_test, grid_predictions, target_names=target_names))
+```
+
+    Confusion Matrix 
+     [[8 0 0 0 1]
+     [0 6 0 0 1]
+     [1 0 3 0 0]
+     [1 0 0 2 0]
+     [0 0 0 0 3]] 
+    
+                           precision    recall  f1-score   support
+    
+               ependymoma       0.80      0.89      0.84         9
+             glioblastoma       1.00      0.86      0.92         7
+          medulloblastoma       1.00      0.75      0.86         4
+                   normal       1.00      0.67      0.80         3
+    pilocytic astrocytoma       0.60      1.00      0.75         3
+    
+                 accuracy                           0.85        26
+                macro avg       0.88      0.83      0.83        26
+             weighted avg       0.88      0.85      0.85        26
+    
+
+
+## This model had an overall 85% accuracy of correctly identifying the tumor type in this dataset.
+
+This dataset was relatively small (130 samples) which limited the training capability of the model. The model performace would be improved as more data is collected. Further insights could also be gained from the evaluation of the gene expression variance.
+
+
+```python
+
+```
