@@ -12,7 +12,7 @@ header:
 <section id="one">
 	<div class="inner">
 		<header class="major">
-			<h2>Hi,</h2>
+			<h2>Hello</h2>
 		</header>
 		<p>My name is Sara Herbstreit. I’m an aspiring data scientist, experienced with Python and R programming. I specialize in machine learning techniques, data visualization, and data wrangling. I currently work as a Senior Associate Scientist in life science. I am an ambitious and dedicated team player with a proven record of success. Excellent attention to detail and incredible organizational skills allow me to multitask well to complete work as efficiently as possible. 
 </p>
