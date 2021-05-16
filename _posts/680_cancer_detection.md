@@ -230,9 +230,8 @@ plt.title('Frequency of Case Types in Data')
 
 
 
-    
-![png](output_4_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_4_1.png" alt="linearly separable data">
+   
 
 
 
@@ -261,8 +260,8 @@ plt.ylabel('Expression Levels')
 
 
 
-    
-![png](output_6_1.png)
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_1.png" alt="linearly separable data">
     
 
 
@@ -284,8 +283,8 @@ plt.ylabel('Expression Levels')
 
 
     
-![png](output_7_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_7_1.png" alt="linearly separable data">
+
 
 
 
@@ -306,7 +305,8 @@ plt.ylabel('Expression Levels')
 
 
     
-![png](output_8_1.png)
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_8_1.png" alt="linearly separable data">
     
 
 
@@ -327,9 +327,7 @@ plt.ylabel('Expression Levels')
 
 
 
-    
-![png](output_9_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_9_1.png" alt="linearly separable data">
 
 
 
@@ -349,9 +347,8 @@ plt.ylabel('Expression Levels')
 
 
 
-    
-![png](output_10_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_10_1.png" alt="linearly separable data">
+
 
 
 
@@ -616,7 +613,7 @@ plt.ylabel('Expression Levels')
 
 
     
-![png](output_14_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_14_1.png" alt="linearly separable data">
     
 
 
@@ -723,7 +720,8 @@ plt.locator_params(axis='y', nbins=10)
 
 
     
-![png](output_24_0.png)
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_24_0.png" alt="linearly separable data">
     
 
 
@@ -781,9 +779,7 @@ plt.show()
 
 
 
-    
-![png](output_26_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_26_1.png" alt="linearly separable data">
 
 
 
