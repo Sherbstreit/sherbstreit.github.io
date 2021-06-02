@@ -1,3 +1,14 @@
+---
+title: "Image Classifier"
+date: 2021-04-28
+tags: [image classification, data science, CNN, neural networks, python]
+header:
+  image: '/images/cnn.jpeg'
+excerpt: "Creating an image classifier through a convolutional neural network"
+mathjax: "true"
+---
+
+
 ```python
 import numpy as np
 import pandas as pd
@@ -78,9 +89,8 @@ plt.show()
 ```
 
 
-    
-![png](output_4_0.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_4_0.jpg" alt="linearly separable data">
+
 
 
 ## We can see that some of these images appear to have contradicting or incorrect labels. This is most notable in the mountain and glacier classes. Many photos also include more than one class.
@@ -101,9 +111,8 @@ plt.show()
 ```
 
 
-    
-![png](output_6_0.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_0.jpg" alt="linearly separable data">
+
 
 
 
@@ -277,8 +286,8 @@ plt.show()
 ```
 
 
-    
-![png](output_13_0.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_13_0.jpg" alt="linearly separable data">
+
     
 
 
@@ -303,8 +312,8 @@ plt.show()
 ```
 
 
-    
-![png](output_15_0.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_15_0.jpg" alt="linearly separable data">
+
     
 
 
@@ -390,9 +399,8 @@ plt.show()
 ```
 
 
-    
-![png](output_25_0.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_25_0.jpg" alt="linearly separable data">
+
 
 
 
