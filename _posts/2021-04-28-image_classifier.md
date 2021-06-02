@@ -536,7 +536,7 @@ df.round(3)
 
 
 
-### The model did very well in the forest, sea, streets and building classes. The model still has a hard time reading new glacier or mountain images. When presented with a "trick" image containing sea, mountains and forest, the model identifies this as forest. While this is not totally incorrect, the majority of the image is sea and I would have preferred it to be labeled as sea.
+### The model did very well in the forest, sea, streets and building classes. The model still has a hard time reading new glacier or mountain images. When presented with a "trick" image containing sea, mountains and forest, the model identifies this as forest. While this is not totally incorrect, the majority of the image is sea and I would have preferred it to be labeled as sea. \n
 
 # Future Improvements
 
