@@ -10,7 +10,7 @@ mathjax: "true"
 
 ## What is image classification?
 
-### Image classification is using a computer to analyze an image and identify which class appears in the image. A class is the category or label of the object being identified. In this image classifier, the class is one of the following: sea, mountain, forest, glacier, building or street. When given an image, the classifier will assign probabilities of each class appearing in the image. The class with the highest probability will be assigned to the image.
+### Image classification uses a computer to analyze an image and identify which class appears in it. A class is the category or label of the object being identified. In this image classifier, the class is one of the following: sea, mountain, forest, glacier, building or street. When given an image, the classifier will assign probabilities of each class appearing in the image. The class with the highest probability will be assigned to the image.
 
 ## How does image classification work?
 
