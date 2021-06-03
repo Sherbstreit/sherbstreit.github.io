@@ -8,6 +8,16 @@ excerpt: "Creating an image classifier through a convolutional neural network"
 mathjax: "true"
 ---
 
+## What is image classification?
+
+### Image classification is using a computer to analyze an image and identify which class appears in the image. A class is the category or label of the object being identified. In this image classifier, the class is one of the following: sea, mountain, forest, glacier, building or street. When given an image, the classifier will assign probabilities of each class appearing in the image. The class with the highest probability will be assigned to the image.
+
+## How does image classification work?
+
+### I used a convolutional neural network (CNN) to create the classifier. A CNN works by using pixel data to extract features from the image. The image is convolved into a 2D matrix using filters that slide over a specified range of pixels at a time. A rectified linear activation function (ReLU) is applied on the input and hidden layers of the model to increase non-linearity of the features. Pooling, dropout, and normalization are all used on the hidden layers. Pooling reduces the dimensions, dropout randomly removes neurons to prevent the model from overfitting, and normalization is used to balance the scale of each feature. The features are flattened into a 1D vector and input through a fully connected (Dense) layer. A softmax function is applied on the output layer, which converts the previous layer outputs into probability distributions for each class. This will tell us which class the image most likely contains.
+
+
+
 # Overview of Findings
 <iframe src="https://bellevueuniversity-my.sharepoint.com/:p:/g/personal/sherbstreit_my365_bellevue_edu/ETZgR5lBsZlHknNx0Y_Pbv4BpIKiCHsHhuNjLKzMMvK_rA?e=82tMuv&amp;action=embedview&amp;wdAr=1.7777777777777777" width="850px" height="421px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
