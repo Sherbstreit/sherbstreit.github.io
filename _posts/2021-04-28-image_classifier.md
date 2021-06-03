@@ -538,7 +538,7 @@ df.round(3)
 <br />
 # Future Improvements
 
-### Revisiting the label assignments in the training and validation data could improve the precision and specificity of the model. I believe some of the mountain and sea images were labeled incorrectly, leading to poor fitting on these classes. Adding secondary label tags to identify other categories inclued in the image would also be beneficial. 
+### Revisiting the label assignments in the training and validation data could improve the precision and specificity of the model. I believe some of the mountain and glacier images were labeled incorrectly, leading to poor fitting on these classes. Adding secondary label tags to identify other categories inclued in the image would also be beneficial. 
 
 
 ```python
