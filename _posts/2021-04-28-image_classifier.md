@@ -14,7 +14,14 @@ mathjax: "true"
 
 ## How does image classification work?
 
-### I used a convolutional neural network (CNN) to create the classifier. A CNN works by using pixel data to extract features from the image. The image is convolved into a 2D matrix using filters that slide over a specified range of pixels at a time. A rectified linear activation function (ReLU) is applied on the input and hidden layers of the model to increase non-linearity of the features. Pooling, dropout, and normalization are all used on the hidden layers. Pooling reduces the dimensions, dropout randomly removes neurons to prevent the model from overfitting, and normalization is used to balance the scale of each feature. The features are flattened into a 1D vector and input through a fully connected (Dense) layer. A softmax function is applied on the output layer, which converts the previous layer outputs into probability distributions for each class. This will tell us which class the image most likely contains.
+### I used a convolutional neural network (CNN) to create the classifier. A CNN works by using pixel data to extract features from the image. The image is convolved into a 2D matrix using filters that slide over a specified range of pixels at a time. A rectified linear activation function (ReLU) is applied on the input and hidden layers of the model to increase non-linearity of the features.
+
+### Pooling, dropout, and normalization are all used on the hidden layers.
+### * Pooling reduces the dimensions
+### * Dropout randomly removes neurons to prevent the model from overfitting
+### * Normalization is used to balance the scale of each feature
+
+### The features are flattened into a 1D vector and input through a fully connected (Dense) layer. A softmax function is applied on the output layer, which converts the previous layer outputs into probability distributions for each class. This will tell us which class the image most likely contains.
 
 
 
