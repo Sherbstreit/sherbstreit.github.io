@@ -23,7 +23,7 @@ mathjax: "true"
 
 ### The features are flattened into a 1D vector and input through a fully connected (Dense) layer. A softmax function is applied on the output layer, which converts the previous layer outputs into probability distributions for each class. This will tell us which class the image most likely contains.
 
-
+<br />
 
 # Overview of Findings
 <iframe src="https://bellevueuniversity-my.sharepoint.com/:p:/g/personal/sherbstreit_my365_bellevue_edu/ETZgR5lBsZlHknNx0Y_Pbv4BpIKiCHsHhuNjLKzMMvK_rA?e=82tMuv&amp;action=embedview&amp;wdAr=1.7777777777777777" width="850px" height="421px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
