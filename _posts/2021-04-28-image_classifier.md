@@ -110,8 +110,7 @@ plt.show()
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_4_0.jpg" alt="linearly separable data">
-<img src="{{ site.url }}{{ site.baseurl }}/images/cancer1.jpeg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_4_0.png" alt="linearly separable data">
 
 
 
@@ -133,7 +132,7 @@ plt.show()
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_0.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_0.png" alt="linearly separable data">
 
 
 
@@ -308,7 +307,7 @@ plt.show()
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_13_0.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_13_0.png" alt="linearly separable data">
 
     
 
@@ -334,7 +333,7 @@ plt.show()
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_15_0.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_15_0.png" alt="linearly separable data">
 
     
 
@@ -421,7 +420,7 @@ plt.show()
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_25_0.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_25_0.png" alt="linearly separable data">
 
 
 
