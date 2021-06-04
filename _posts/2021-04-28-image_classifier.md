@@ -111,6 +111,7 @@ plt.show()
 
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/output_4_0.jpg" alt="linearly separable data">
+<img src="{{ site.url }}{{ site.baseurl }}/images/cancer1.jpeg" alt="linearly separable data">
 
 
 
