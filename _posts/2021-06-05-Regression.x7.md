@@ -14,7 +14,7 @@ mathjax: "true"
 
 
 <br />
-# The Data
+# The Code
 ## Using 7 Regression Models to Predict House Sales Price
 
 
