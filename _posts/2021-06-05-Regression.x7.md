@@ -1,3 +1,20 @@
+---
+title: "Predicting Home Sale Price"
+date: 2021-03-15
+tags: [data wrangling, data cleaning, regression, python, predictive analytics, model tuning, visualization]
+header:
+  image: images/regression.png
+excerpt: "Using 7 Regression Algorithms to predict home sale price"
+mathjax: "true"
+---
+
+## Overview of Findings
+
+<iframe src="https://bellevueuniversity-my.sharepoint.com/:p:/g/personal/sherbstreit_my365_bellevue_edu/EU5jPU6ZYhVCpSlJpq-kNKYBwFRhi3vAXB5AHPOfBdMM3A?e=Ftq0CS&amp;action=embedview&amp;wdAr=1.7777777777777777" width="610px" height="367px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+
+<br />
+# The Data
 ## Using 7 Regression Models to Predict House Sales Price
 
 
@@ -979,9 +996,8 @@ ax.set(xlabel='Overall House Quality', ylabel='Sale Price')
 
 
 
-    
-![png](output_5_1.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_5_1.png" alt="linearly separable data">
+   
 
 
 
@@ -999,8 +1015,9 @@ ax.set(xlabel='Overall House Condition', ylabel='Sale Price')
 
 
 
-    
-![png](output_6_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_1.png" alt="linearly separable data">
+   
+
     
 
 
@@ -1019,8 +1036,9 @@ ax.set(xlabel='Number Bedrooms', ylabel='Sale Price')
 
 
 
-    
-![png](output_7_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_7_1.png" alt="linearly separable data">
+   
+
     
 
 
@@ -1039,8 +1057,9 @@ ax.set(xlabel='Number Full Bathrooms', ylabel='Sale Price')
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_8_1.png" alt="linearly separable data">
     
-![png](output_8_1.png)
+
     
 
 
@@ -1060,8 +1079,8 @@ ax.set(xlabel='Kitchen Quality', ylabel='Sale Price')
 
 
 
-    
-![png](output_9_1.png)
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_9_1.png" alt="linearly separable data">
+  
     
 
 
@@ -1080,8 +1099,8 @@ ax.set(xlabel='Number of Fireplaces', ylabel='Sale Price')
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_10_1.png" alt="linearly separable data">
     
-![png](output_10_1.png)
     
 
 
@@ -1100,9 +1119,9 @@ ax.set(xlabel='Number Car Garage', ylabel='Sale Price')
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_11_1.png" alt="linearly separable data">
     
-![png](output_11_1.png)
-    
+
 
 
 
@@ -4090,9 +4109,9 @@ plt.show()
 ```
 
 
-    
-![png](output_33_0.png)
-    
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_33_0.png" alt="linearly separable data">
+   
+
 
 
 
@@ -4105,8 +4124,8 @@ plt.show()
 ```
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_34_0.png" alt="linearly separable data">
     
-![png](output_34_0.png)
     
 
 
@@ -4234,9 +4253,9 @@ plt.xticks(rotation=45)
 
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_45_1.png" alt="linearly separable data">
     
-![png](output_45_1.png)
-    
+
 
 
 ## Linear Regression
@@ -4570,8 +4589,8 @@ visualizer.poof()
 ```
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_75_0.png" alt="linearly separable data">
     
-![png](output_75_0.png)
     
 
 
@@ -4592,8 +4611,8 @@ visualizer.poof()
 ```
 
 
+<img src="{{ site.url }}{{ site.baseurl }}/images/output_76_0.png" alt="linearly separable data">
     
-![png](output_76_0.png)
     
 
 
