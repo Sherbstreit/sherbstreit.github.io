@@ -3,7 +3,7 @@ title: "Predicting Home Sale Price"
 date: 2021-06-05
 tags: [data wrangling, data cleaning, regression, python, predictive analytics, model tuning, visualization]
 header:
-  image: images/regression.png
+  image: images/regression.jpeg
 excerpt: "Using Regression to predict home sale price"
 mathjax: "true"
 ---
