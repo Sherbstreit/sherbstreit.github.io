@@ -378,7 +378,7 @@ plt.savefig('heatmap.png')
 ```
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_6_0.png" alt="linearly separable data">   
+<img src="{{ site.url }}{{ site.baseurl }}/images/churn_hm.png" alt="linearly separable data">   
 
     
 
@@ -546,7 +546,7 @@ plt.show()
 
     
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/output_15_0.png" alt="linearly separable data">   
+<img src="{{ site.url }}{{ site.baseurl }}/images/churn_features.png" alt="linearly separable data">   
    
 
 
