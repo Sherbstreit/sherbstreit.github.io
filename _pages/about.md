@@ -14,8 +14,8 @@ header:
 		<header class="major">
 			<h2>Hello</h2>
 		</header>
-		<p>My name is Sara Herbstreit. I’m an experienced data scientist who enjoys uncovering insights from unstructured and messy data.
- I specialize in machine learning techniques, data visualization, and data mining. I am an ambitious and dedicated team player with a proven record of success. Excellent attention to detail and incredible organizational skills allow me to multitask well to complete work as efficiently as possible. 
+		<p>My name is Sara Herbstreit. I’m an experienced Data Scientist specializing in search relevance. I have built our production Learning to Rank (LTR) ML model, tuned our search engine,  created various tools/applications to gain deeper insight into both customer and search engine behaviors, developed process for caching documents to limit load on SAP, and translated our search metadata into 7 additional languages, allowing our customers to search in their native languages and boosting revenue by $850,000 annually. I enjoy ML applications, creating tools/dashboards to monitor processes, ETL and BE work, and all things search-related.
+ I am an ambitious and dedicated team player with a proven record of success. I was recognized at my previous employer for excellent cross-team collaboration, and have been recognized in both roles that I have held at my current employer for being a team leader and exhibiting our core values. I have excellent attention to detail and eagerness to continue learning new techniques that allow me to better solution technical issues. 
 </p>
 	</div>
 </section>
