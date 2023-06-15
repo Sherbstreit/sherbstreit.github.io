@@ -15,6 +15,7 @@ header:
 			<h2>Hello</h2>
 		</header>
 		<p>I’m an experienced Data Scientist specializing in search relevance. I built a production Learning to Rank (LTR) ML model for a multi-billion dollar e-commerce website, tuned the search engine, created various tools/applications to gain deeper insight into both customer and search engine behaviors, codeveloped process for caching documents to reduce load on ERP, and translated search metadata into 7 additional languages,  boosting revenue by $850,000 annually. I enjoy ML applications, creating tools/dashboards to monitor processes, ETL and BE work, and all things search-related.
+</br>
  I am an ambitious and dedicated team player with a proven record of success. I have been recognized in every professional role I have held, with rewards for cross-team collaboration, leading a team and exhibiting core values. I have excellent attention to detail with a strong drive to continue learning, allowing me to expand my knowledge and determine best practice solutions on technical issues. 
 </p>
 	</div>
