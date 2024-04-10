@@ -20,8 +20,6 @@ header:
 <p>
 My professional demeanor is characterized by ambition, dedication, and collaborative spirit, consistently earning recognition for cross-functional teamwork, leadership, and adherence to core values. With meticulous attention to detail and a relentless pursuit of knowledge, I continuously expand my expertise and excel in devising optimal solutions to complex technical challenges.
 </p>
-	</div>
-</section>
 
 <section id="two" class="spotlights">
 	<section>
